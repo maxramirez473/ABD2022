@@ -26,6 +26,17 @@ INNER JOIN infoaccidente AS ia
 ON ia.provincia_id=p.id_provincia
 WHERE ia.año_id=2015;
 
+/* EJERCICIO 9 */
+SELECT p.provincia, (ia.heridos_hospitalizados + ia.heridos_no_hospitalizados) AS TOTAL
+FROM provincia AS p 
+INNER JOIN infoaccidente AS ia 
+ON ia.provincia_id=p.id_provincia
+INNER JOIN tipovia AS tv 
+ON tv.id_tipo_via=ia.tipo_via_id
+WHERE ia.año_id=2015 AND tv.tipo_via='Interurbana'
+ORDER by TOTAL DESC
+LIMIT 3;
+
 /* EJERCICIO 10 */
 SELECT 
     (SELECT (ia.heridos_hospitalizados / ia.heridos_no_hospitalizados) AS PROPORCION
