@@ -26,6 +26,40 @@ INNER JOIN infoaccidente AS ia
 ON ia.provincia_id=p.id_provincia
 WHERE ia.año_id=2015;
 
+/* EJERCICIO 4 */
+SELECT ROUND(AVG(heridos_no_hospitalizados), 0) AS mediaNoHospitalizados, año_id 
+FROM infoaccidente GROUP BY año_id;
+
+/* EJERCICIO 5 */
+SELECT info.heridos_hospitalizados AS heridosHospitalizados, info.año_id, p.provincia, tipo.tipo_via 
+FROM infoaccidente AS info
+INNER JOIN tipovia AS tipo ON (info.tipo_via_id = tipo.id_tipo_via) 
+INNER JOIN provincia AS p ON (info.provincia_id = p.id_provincia)
+ORDER BY info.heridos_hospitalizados DESC
+LIMIT 1;
+
+/*EJERCICIO 6*/
+SELECT SUM(info.fallecidos) AS totalFallecidos, info.año_id, c.ccaa FROM infoaccidente AS info 
+INNER JOIN provincia AS p ON (info.provincia_id = p.id_provincia)
+INNER JOIN comunidadautonoma AS c ON (p.ccaa_id = c.id_ccaa)
+WHERE info.año_id = 2014 
+GROUP BY c.id_ccaa HAVING SUM(info.fallecidos) <= 100
+ORDER BY SUM(info.fallecidos) DESC;
+
+/* EJERCICIO 7 */
+SELECT info.accidentes_con_victimas, tipo.tipo_via, p.provincia, info.año_id
+FROM infoaccidente AS info 
+INNER JOIN tipovia AS tipo ON (info.tipo_via_id = tipo.id_tipo_via)
+INNER JOIN provincia AS p ON (info.provincia_id = p.id_provincia)
+WHERE tipo.id_tipo_via = 'B' AND info.año_id = 2015
+ORDER BY info.accidentes_con_victimas DESC
+LIMIT 1;
+
+/* EJERCICIO 8 */
+SELECT provincia FROM provincia
+WHERE provincia LIKE 'C%'
+ORDER BY provincia DESC
+
 /* EJERCICIO 9 */
 SELECT p.provincia, (ia.heridos_hospitalizados + ia.heridos_no_hospitalizados) AS TOTAL
 FROM provincia AS p 
