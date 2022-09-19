@@ -18,13 +18,15 @@ WHERE ca.ccaa='Andalucía' AND ia.accidentes_con_victimas >= 25 AND
 ia.año_id=2014 AND tv.tipo_via='Interurbana';
 
 /* EJERCICIO 3 */
-SELECT ca.ccaa, MAX(ia.accidentes_con_victimas) AS accidentes
+SELECT ca.ccaa, ia.accidentes_con_victimas AS accidentes
 FROM comunidadautonoma AS ca 
 INNER JOIN provincia as p 
 ON p.ccaa_id=ca.id_ccaa
 INNER JOIN infoaccidente AS ia 
 ON ia.provincia_id=p.id_provincia
-WHERE ia.año_id=2015;
+WHERE ia.año_id=2015
+ORDER BY ia.accidentes_con_victimas DESC
+LIMIT 1;
 
 /* EJERCICIO 4 */
 SELECT ROUND(AVG(heridos_no_hospitalizados), 0) AS mediaNoHospitalizados, año_id 
