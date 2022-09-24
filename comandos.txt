@@ -1,0 +1,9 @@
+    mysql -h hostname -u root -p ----> hostname:localhost, u:user, p:password
+    create database [databasename]; -----> crear base de datos
+    show databases; ----> listar bases de datos
+    use [db name]; ----> seleccionar base de datos
+	show tables; ----> listar tablas
+    describe [table name]; ----> describe formato de campos de tabla
+	drop database [database name]; ----> elimina base de datos
+	drop table [table name]; ----> elimina tabla
+    show columns from [table name]; ----> lista campos de tabla
