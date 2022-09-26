@@ -1,5 +1,5 @@
 /* EJERCICIO 4 */
-
+use chinook;
 CREATE VIEW TopArtists AS 
 SELECT A.Name, SUM(I.Quantity) AS CantidadVendida
 FROM Artist A

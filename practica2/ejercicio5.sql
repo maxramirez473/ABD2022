@@ -1,5 +1,5 @@
 /* EJERCICIO 5 */
-
+use chinook;
 CREATE VIEW CountrySales AS 
 SELECT C.Country, SUM(IC.Quantity) AS VentasPorPais
 FROM Customer C

@@ -1,3 +1,4 @@
+use chinook;
 DELIMITER // 
 CREATE PROCEDURE GetInvoicePrice(IN id INT, OUT total float)
 BEGIN 

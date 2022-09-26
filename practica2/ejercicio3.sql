@@ -1,3 +1,4 @@
+use chinook;
 CREATE VIEW UpsellingTracks AS
 SELECT t.TrackId, t.Name, t.UnitPrice FROM track as t 
 INNER JOIN invoiceline AS il
