@@ -1,0 +1,4 @@
+
+mysqldump -u root -p chinook > chinookBackup.sql
+
+mysqldump -u root -p mysql user > usersBackup.sql
