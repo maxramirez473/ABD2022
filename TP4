@@ -1,0 +1,20 @@
+Ejercicio3:
+db.Books.count()
+Hay 431 libros
+
+Ejercicio4:
+db.Books.find({pageCount:{$gt:700}},{title:1, pageCount:1, _id:0})
+
+Ejercicio5:
+db.Books.find({shortDescription: { $exists: 0 }}).count()
+(no se cuantos porque no lo pude ejecutar)
+
+Ejercicio6:
+db.Books.find({pageCount: { $gte:200, $lte:350 }}).count()
+(no se cuantos porque no lo pude ejecutar)
+
+Ejercicio7:
+db.Books.remove({status: "MEAP"})
+
+Ejercicio8:
+db.Books.find({categories: { $in: ["Internet"] }}).pretty()
