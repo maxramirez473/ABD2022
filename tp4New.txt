@@ -42,3 +42,10 @@ db.Books.aggregate([
 
 1 - ascendente/-1 descendente
 
+Ej.10:
+db.books.aggregate([
+   {$unwind: "$categories"},
+   {_id:"$categories",
+    libros: {$push: "$title"}}
+ ])
+
