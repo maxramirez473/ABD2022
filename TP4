@@ -7,11 +7,11 @@ db.Books.find({pageCount:{$gt:700}},{title:1, pageCount:1, _id:0})
 
 Ejercicio5:
 db.Books.find({shortDescription: { $exists: 0 }}).count()
-(no se cuantos porque no lo pude ejecutar)
+(207)
 
 Ejercicio6:
 db.Books.find({pageCount: { $gte:200, $lte:350 }}).count()
-(no se cuantos porque no lo pude ejecutar)
+(53)
 
 Ejercicio7:
 db.Books.remove({status: "MEAP"})

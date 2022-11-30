@@ -1,0 +1,44 @@
+Ej.2:
+
+Ej.3:
+db.Books.count() / db.Books.countDocuments()
+Hay 431 libros
+
+Ej.4:
+db.Books.find({pageCount:{$gt:700}},{title:1, pageCount:1, _id:0})
+
+Ej.5:
+db.Books.find({shortDescription: { $exists: 0 }}).count()
+(207)
+
+Ej.6:
+db.Books.find({pageCount: { $gte:200, $lte:350 }}).count()
+(53)
+
+Ej.7:
+db.Books.remove({status: "MEAP"}) / db.Books.deleteMany({status: "MEAP"})
+
+Ej.8:
+db.Books.find({categories: { $in: ["Internet"] }}).pretty()
+
+Ej.9:
+a)
+db.Books.aggregate( [
+   {
+     $addFields: {
+       categoriesCount: { $size: "$categories" } 
+     }
+   }] )
+b)
+db.Books.aggregate([
+	{$match: {"categories":{$size:2}}}
+])
+
+c)
+db.Books.aggregate([
+	{ $project: {title: 1}},
+	{ $sort: { title: 1}}
+])
+
+1 - ascendente/-1 descendente
+
